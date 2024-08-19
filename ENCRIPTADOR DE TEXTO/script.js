@@ -1,6 +1,6 @@
 const textArea = document.querySelector(".text-area");
 const encriptadoArea = document.querySelector(".encriptado-area");
-
+const copyText = document.querySelector(".encriptado-area");
 
 //La letra "e" es convertida para "enter"
 //La letra "i" es convertida para "imes"
@@ -10,7 +10,7 @@ const encriptadoArea = document.querySelector(".encriptado-area");
 
 function botonEncriptar(){ 
     const textoEncriptado = encriptar(textArea.value);
-    encriptadoArea.value = textoEncriptado
+    encriptadoArea.value = textoEncriptado;
     textArea.value = "";
     encriptadoArea.style.backgroundImage = "none";
 }
@@ -20,18 +20,18 @@ function encriptar (stringEncriptado){
     console.table (matrizCodigo);
     stringEncriptado = stringEncriptado.toLowerCase();
 
-    for (let i =0; i < matrizCodigo.length; i++){
+    for (let i=0; i < matrizCodigo.length; i++){
         if (stringEncriptado.includes (matrizCodigo[i][0])){
             stringEncriptado = stringEncriptado.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1]);
         }
     }
-    return stringEncriptado
+    return stringEncriptado;
 }
 
 
 function botonDesencriptar(){ 
     const textoEncriptado = desencriptar(textArea.value);
-    encriptadoArea.value = textoEncriptado
+    encriptadoArea.value = textoEncriptado;
     textArea.value = "";
 }
 
@@ -39,10 +39,20 @@ function desencriptar (stringDesencriptado){
     let matrizCodigo = [["a","ai"],["e","enter"],["i","imes"],["o","ober"],["u","ufat"]];
     stringDesencriptado = stringDesencriptado.toLowerCase();
 
-    for (let i =0; i < matrizCodigo.length; i++){
+    for (let i =0; i > matrizCodigo.length; i++){
         if (stringDesencriptado.includes (matrizCodigo[i][1])){
             stringDesencriptado = stringDesencriptado.replaceAll(matrizCodigo[i][1], matrizCodigo[i][0]);
         }
     }
-    return stringDesencriptado
+    return stringDesencriptado;
+}
+
+function botonCopiar(){
+        // Selecciona el contenido del campo de texto
+        var texto = copyText.value;
+        texto.select();
+        texto.setSelectionRange(0, 99999); // Para dispositivos móviles
+
+        // Copia el texto al portapapeles
+        document.execCommand("copy");
 }
