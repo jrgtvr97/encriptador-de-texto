@@ -4,32 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Krona+One&display=swap')" rel="stylesheet"> 
-    <title>Encriptador de texto</title>
+    <title>enkriptador de texto</title>
+
 </head>
 <body>
     <header>
-        <img class="logo" src="/imagenes/Logo.png" alt="logoAlura">
+        <img class="logo" src="Imagenes/Logo.png" alt="logo">
     </header>
     <main>
-        <section>
-            <textarea class="text-area" cols="30" rows="10" placeholder="Ingrese el texto aqui"></textarea>
-
-            <div>
-                <h6 class="informacion">Solo letras minúsculas y sin acentos</h6>
+        <section class="seccion1">
+            <div class="contenedorcajatexto">
+                <textarea placeholder="Ingrese el texto aqui" class="cajatexto"></textarea>
             </div>
-            <div class="botones">
+            <div class="alerta">
+                <img src="Imagenes/alerta.png" alt="alerta">
+                <p>Solo letras minúsculas y sin acentos</p>
+            </div>
+            <div class="contenedor-botones">
                 <button class="btn-encriptar" onclick="botonEncriptar()">Encriptar</button>
                 <button class="btn-desencriptar" onclick="botonDesencriptar()">Desencriptar</button>
             </div>
         </section>
-        <section>
-            <textarea class="encriptado-area" cols="30" rows="10"></textarea>
-            <div>
-                <button class="btn-copiar" onclick="botonCopiar()">Copiar</button>
+        <section class="seccion2">
+            <div class="contenedormunieco">
+                <img src="Imagenes/Muñeco.png" alt="muñeco">
             </div>
+            <div class="contenedor-parrafo">
+                <h3>Nigún mensaje fue <br> encontrado</h3>
+                <p>Ingresa el texto que desees encriptar o <br> desencriptar.</p>
+            </div>
+            <div class="contenedor-copiar">
+                <input type="button" class="btn-copiar" value="Copiar">
+            </div>
+            <div class="contenedor-resultado">
+                <p class="texto-resultado"></p>
+            </div>
+
         </section>
     </main>
     <script src="script.js"></script>
+    
 </body>
 </html>

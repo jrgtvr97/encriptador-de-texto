@@ -1,58 +1,99 @@
-const textArea = document.querySelector(".text-area");
-const encriptadoArea = document.querySelector(".encriptado-area");
-const copyText = document.querySelector(".encriptado-area");
 
-//La letra "e" es convertida para "enter"
-//La letra "i" es convertida para "imes"
-//La letra "a" es convertida para "ai"
-//La letra "o" es convertida para "ober"
-//La letra "u" es convertida para "ufat"
+var munieco = document.querySelector(".contenedormunieco");
+var contenedor = document.querySelector(".contenedor-parrafo");
+var resultado = document.querySelector(".texto-resultado");
 
-function botonEncriptar(){ 
-    const textoEncriptado = encriptar(textArea.value);
-    encriptadoArea.value = textoEncriptado;
-    textArea.value = "";
-    encriptadoArea.style.backgroundImage = "none";
+
+function botonEncriptar(){
+    ocultarAdelante();
+    var cajatexto = recuperarTexto()
+    resultado.textContent = encriptarTexto(cajatexto);
+    cajatexto.value = "";
 }
 
-function encriptar (stringEncriptado){
-    let matrizCodigo = [["a","ai"],["e","enter"],["i","imes"],["o","ober"],["u","ufat"]];
-    console.table (matrizCodigo);
-    stringEncriptado = stringEncriptado.toLowerCase();
+function botonDesencriptar(){
+    ocultarAdelante();
+    var cajatexto = recuperarTexto()
+    resultado.textContent = desencriptarTexto(cajatexto);
+}
 
-    for (let i=0; i < matrizCodigo.length; i++){
-        if (stringEncriptado.includes (matrizCodigo[i][0])){
-            stringEncriptado = stringEncriptado.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1]);
+function recuperarTexto(){
+    var cajatexto = document.querySelector(".cajatexto")
+    return cajatexto.value
+}
+
+function ocultarAdelante(){
+    munieco.classList.add("ocultar");
+    contenedor.classList.add("ocultar");
+}
+
+function encriptarTexto(mensaje){
+    var texto = mensaje;
+    var textoFinal = "";
+
+    for(var i = 0; i < texto.length; i++){
+        if(texto[i] == "a"){
+            textoFinal = textoFinal + "ai"
+        }
+        else if(texto[i] == "e"){
+            textoFinal = textoFinal + "enter"
+        }
+        else if(texto[i] == "i"){
+            textoFinal = textoFinal + "imes"
+        }
+        else if(texto[i] == "o"){
+            textoFinal = textoFinal + "ober"
+        }
+        else if(texto[i] == "u"){
+            textoFinal = textoFinal + "ufat"
+        }
+        else{
+            textoFinal = textoFinal + texto[i]
         }
     }
-    return stringEncriptado;
+    return textoFinal;
+
 }
 
+function desencriptarTexto(mensaje){
+    var texto = mensaje;
+    var textoFinal = "";
 
-function botonDesencriptar(){ 
-    const textoEncriptado = desencriptar(textArea.value);
-    encriptadoArea.value = textoEncriptado;
-    textArea.value = "";
-}
-
-function desencriptar (stringDesencriptado){
-    let matrizCodigo = [["a","ai"],["e","enter"],["i","imes"],["o","ober"],["u","ufat"]];
-    stringDesencriptado = stringDesencriptado.toLowerCase();
-
-    for (let i =0; i > matrizCodigo.length; i++){
-        if (stringDesencriptado.includes (matrizCodigo[i][1])){
-            stringDesencriptado = stringDesencriptado.replaceAll(matrizCodigo[i][1], matrizCodigo[i][0]);
+    for(var i = 0; i < texto.length; i++){
+        if(texto[i] == "a"){
+            textoFinal = textoFinal + "a"
+            i = i+1;
         }
+        else if(texto[i] == "e"){
+            textoFinal = textoFinal + "e"
+            i = i+4;
+        }
+        else if(texto[i] == "i"){
+            textoFinal = textoFinal + "i"
+            i = i+3;
+        }
+        else if(texto[i] == "o"){
+            textoFinal = textoFinal + "o"
+            i = i+3;
+        }
+        
+        else if(texto[i] == "u"){
+            textoFinal = textoFinal + "u"
+            i = i+3;
+        }
+        else{
+            textoFinal = textoFinal + texto[i];
+        }
+        
     }
-    return stringDesencriptado;
+
+    return textoFinal;
+
 }
 
-function botonCopiar(){
-        // Selecciona el contenido del campo de texto
-        var texto = copyText.value;
-        texto.select();
-        texto.setSelectionRange(0, 99999); // Para dispositivos móviles
-
-        // Copia el texto al portapapeles
-        document.execCommand("copy");
-}
+const btnCopiar = document.querySelector(".btn-copiar"); 
+    btnCopiar.addEventListener("click", copiar = () => {
+    var contenido = document.querySelector(".texto-resultado").textContent;
+    navigator.clipboard.writeText(contenido);
+    console.log("hola"); 
+});
