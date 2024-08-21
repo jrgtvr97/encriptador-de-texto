@@ -1,0 +1,272 @@
+*{
+    margin: 10px;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body{
+    background-color: #000000;
+}
+
+header{
+    width: 100%;
+    height: 70px;
+}
+
+.logo{
+    width: 100px;
+    height: 50px;
+    padding-top: 20px;
+    padding-left: 40px;
+}
+
+main{
+    position: relative;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+}
+
+.contenedorcajatexto{
+    position: relative;
+    left: auto;
+    top: auto;
+    padding-left: 10%;
+    width: 90%;
+    max-width: 1080px;
+    height: 400px;
+    margin-bottom: 40px;
+}
+
+.cajatexto{
+    width: 100%;
+    height: 100px;
+    border: none;
+    background-color: #000000;
+    cursor: pointer;
+    color: chartreuse;
+    font-size: 32px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    text-transform: lowercase;
+}
+
+.cajatexto::placeholder{
+    color: chartreuse;
+}
+
+.cajatexto:focus{
+        outline: none;
+    }
+
+.alerta{
+    position: relative;
+    top: auto;
+    left: auto;
+    display: flex;
+    color: chartreuse;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.contenedor-botones{
+    position: relative; /* Cambiado de absolute a relative */
+    top: auto;
+    height: auto; /* Cambiado de fijo a auto */
+    padding-left: 0;
+    padding-top: 0;
+    justify-content: center;
+    gap: 20px; /* Espacio entre los botones */
+    margin-bottom: 0px; /* Separación del contenido inferior */
+    flex-wrap: wrap; /* Para que los botones se adapten en pantallas pequeñas */
+}
+
+.btn-encriptar{
+    width: 90%;
+    max-width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    background-color: chartreuse;
+    color: #444343;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.btn-desencriptar{
+    width: 90%;
+    max-width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    background-color: #444343;
+    color: chartreuse;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: 2.5px solid chartreuse;
+    cursor: pointer;
+}
+
+.seccion2{
+    display: block;
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto 20px auto; /* Centrado en la pantalla con margen inferior */
+    padding-right: 20px;
+    background-color: #444343;
+    box-sizing: border-box;
+    border-radius: 32px;
+    box-shadow: 0px 24px 32px -8px rgba(230, 229, 229, 0.932);
+}
+
+.contenedormunieco{
+    position: relative; /* Cambiado de absolute a relative */
+    left: auto;
+    top: auto;
+    padding-top: 50px;
+    text-align: center; /* Centra el contenido */
+}
+
+.contenedor-parrafo{
+    position: relative; /* Cambiado de absolute a relative */
+    box-sizing: border-box;
+    top: auto;
+    left: auto;
+    text-align: center; /* Centra el contenido */
+    margin-bottom: 20px;
+ }
+
+ .contenedor-parrafo h3{
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    color: chartreuse;
+}
+
+.contenedor-parrafo p{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: chartreuse;
+    padding-top: 20px;
+}
+
+.contenedor-resultado{
+    position: relative; /* Cambiado de absolute a relative */
+    bottom: auto;
+    width: 90%; /* Ajustado para pantallas más pequeñas */
+    max-width: 320px;
+    height: auto; /* Cambiado de fijo a auto */
+    margin: 0 auto; /* Centrado en la pantalla */
+}
+
+.contenedor-resultado p{
+    color: chartreuse;
+    font-size: 25px;
+}
+
+.contenedor-copiar{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    bottom: auto;
+    top: 100px;
+    padding-left: 40px;
+}
+
+.btn-copiar{
+    width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    background-color: chartreuse;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    border: 2.5px solid #ffffff;
+    cursor: pointer;
+    position: relative;
+    top: 50px;
+    right: 4px
+}
+
+.ocultar{
+    display: none;
+}
+
+@media(max-width:1250px){
+    .contenedorcajatexto {
+        padding-left: 10px; /* Ajuste para pantallas más pequeñas */
+    }
+
+    .contenedor-botones {
+        flex-direction: column; /* Cambia la dirección de los botones para que se apilen */
+        align-items: center;
+    }
+
+    .btn-encriptar, .btn-desencriptar {
+        width: 80%; /* Ajuste para pantallas medianas */
+    }
+
+    .contenedor-resultado, .contenedor-copiar {
+        width: 80%; /* Ajuste para pantallas medianas */
+    }
+
+    .seccion2 {
+        width: 80%; /* Ajuste para pantallas medianas */
+    }
+}
+
+@media(max-width: 768px) {
+    .contenedorcajatexto {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        padding-left: 5%;
+    }
+
+    .contenedor-botones {
+        gap: 10px; /* Reduce el espacio entre botones en pantallas pequeñas */
+    }
+
+    .btn-encriptar, .btn-desencriptar {
+        width: 90%; /* Ajuste para pantallas pequeñas */
+    }
+
+    .seccion2 {
+        width: 90%; /* Ajuste para pantallas pequeñas */
+    }
+}
+
+@media(max-width: 480px) {
+    .cajatexto {
+        font-size: 24px; /* Reduce el tamaño de fuente en pantallas muy pequeñas */
+    }
+
+    .btn-encriptar, .btn-desencriptar, .btn-copiar {
+        width: 100%; /* Ocupa todo el ancho disponible en pantallas muy pequeñas */
+    }
+
+    .seccion2 {
+        width: 100%; /* Ocupa todo el ancho disponible en pantallas muy pequeñas */
+    }
+
+    .contenedor-parrafo h3 {
+        font-size: 20px; /* Reduce el tamaño de fuente para el título */
+    }
+
+    .contenedor-parrafo p {
+        font-size: 14px; /* Reduce el tamaño de fuente para el texto */
+    }
+
+    .contenedor-resultado p {
+        font-size: 20px; /* Reduce el tamaño de fuente para los resultados */
+    }
+}
